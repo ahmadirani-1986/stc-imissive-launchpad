@@ -27,10 +27,31 @@ body { font-family: "Inter", system-ui, sans-serif; letter-spacing: 0; }
   height: 1080px;
   overflow: hidden;
   position: relative;
-  background: #ffffff;
-  color: var(--color-ink);
+  background: #07050C;
+  color: #ECE8F2;
   font-family: "Inter", system-ui, sans-serif;
   letter-spacing: 0;
+}
+.font-mono-d { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 0; }
+.glow-yellow { text-shadow: 0 0 24px rgba(253,191,48,0.55), 0 0 60px rgba(253,191,48,0.18); }
+.glow-purple { text-shadow: 0 0 28px rgba(140,80,200,0.55), 0 0 70px rgba(79,0,160,0.25); }
+.mesh-bg {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+.mesh-bg-fine {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.radial-glow-purple {
+  background:
+    radial-gradient(ellipse 60% 50% at 18% 30%, rgba(120,55,200,0.35), transparent 60%),
+    radial-gradient(ellipse 50% 50% at 85% 80%, rgba(253,191,48,0.10), transparent 65%),
+    #07050C;
 }
 .slide-content h1, .slide-content h2, .slide-content h3, .slide-content .display {
   font-family: "Manrope", system-ui, sans-serif;
