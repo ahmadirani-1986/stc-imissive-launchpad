@@ -47,7 +47,7 @@ export const slides: SlideDef[] = [
     id: "ecosystem",
     title: "Communication Ecosystem",
     notes:
-      "Enterprise SMS is and remains our core. Around it we offer the channels modern enterprises increasingly ask for in the same conversation: OTP and authentication, WhatsApp Business, RCS, AI chatbots and voice agents, push, enterprise APIs and email-to-SMS. The value to stc and to joint customers is a single, governed communication foundation rather than a patchwork of point tools.",
+      "Enterprise SMS is and remains our core. Around it we offer the channels modern enterprises increasingly ask for in the same conversation — OTP and authentication, WhatsApp Business, RCS, AI chatbots and voice agents, push, enterprise APIs and email-to-SMS. The value to stc and to joint customers is a single, governed communication foundation rather than a patchwork of point tools.",
   },
   {
     id: "relationship",
@@ -59,24 +59,24 @@ export const slides: SlideDef[] = [
     id: "vision",
     title: "Our 12-Month Vision",
     notes:
-      "Today we manage around five million messages per month, roughly sixty million annualized. Our twelve-month ambition is to reach thirty-five million per month, a seven-times growth, which translates to a four-hundred-and-twenty million annualized run rate. These are clearly forward figures, not commitments. They are anchored on four pillars: scaling domestic volume, growing the enterprise customer base, strengthening operator relationships, and broadening multi-channel adoption. The infrastructure is ready; the next phase is commercial scale.",
+      "Today we manage around five million messages per month — roughly sixty million annualized. Our twelve-month ambition is to reach thirty-five million per month, a seven-times growth, which translates to a four-hundred-and-twenty million annualized run rate. These are clearly forward figures, not commitments. They are anchored on four pillars: scaling domestic volume, growing the enterprise customer base, strengthening operator relationships, and broadening multi-channel adoption. The infrastructure is ready; the next phase is commercial scale.",
   },
   {
     id: "why",
     title: "Why iMissive",
     notes:
-      "When stc evaluates local providers for enterprise opportunities, we believe four things make iMissive a credible option: deep messaging experience, infrastructure that has been stress-tested for high volume, genuine local execution with Saudi-based support, and the governance enterprise customers require, including proper reporting, sender management, permissions and structured operations. We combine the agility of a specialized provider with the institutional backing of RASSCO Group.",
+      "When stc evaluates local providers for enterprise opportunities, we believe four things make iMissive a credible option: deep messaging experience, infrastructure that has been stress-tested for high volume, genuine local execution with Saudi-based support, and the governance enterprise customers require — proper reporting, sender management, permissions and structured operations. We combine the agility of a specialized provider with the institutional backing of RASSCO Group.",
   },
   {
     id: "partnership",
     title: "Partnership Model",
     notes:
-      "We would like to put four areas on the table for discussion. First, considering iMissive among the qualified local providers for suitable enterprise opportunities referred by stc. Second, joint engagement on strategic accounts that benefit from a specialized provider alongside stc's market reach. Third, an extension of our payment terms to sixty days, which would allow us to take on materially larger enterprise commitments responsibly. And fourth, lightweight structured coordination with clear points of contact and regular business reviews. None of these are demands; they are directions we believe create mutual upside.",
+      "We would like to put four areas on the table for discussion. First, considering iMissive among the qualified local providers for suitable enterprise opportunities referred by stc. Second, joint engagement on strategic accounts that benefit from a specialized provider alongside stc's market reach. Third, an extension of our payment terms to sixty days, which would allow us to take on materially larger enterprise commitments responsibly. And fourth, lightweight structured coordination — clear points of contact and regular business reviews. None of these are demands; they are directions we believe create mutual upside.",
   },
   {
     id: "closing",
     title: "Next Steps and Closing",
     notes:
-      "To close: the infrastructure is ready, and the next chapter is scale. As immediate next steps we would suggest confirming the right enterprise referral path on stc's side, identifying commercial and operational owners on both sides, reviewing the sixty-day payment-term request, selecting one or two initial enterprise opportunities to collaborate on, and agreeing a regular business review cadence. Together, iMissive and stc can unlock meaningful enterprise messaging growth while delivering reliable, locally supported communication at scale. Thank you. We welcome your questions.",
+      "To close: the infrastructure is ready, and the next chapter is scale. As immediate next steps we would suggest confirming the right enterprise referral path on stc's side, identifying commercial and operational owners on both sides, reviewing the sixty-day payment-term request, selecting one or two initial enterprise opportunities to collaborate on, and agreeing a regular business review cadence. Together, iMissive and stc can unlock meaningful enterprise messaging growth while delivering reliable, locally supported communication at scale. Thank you — we welcome your questions.",
   },
 ];

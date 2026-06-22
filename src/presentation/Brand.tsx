@@ -1,49 +1,43 @@
-type LogoProps = { height?: number; className?: string };
+import imissiveLogo from "@/assets/imissive-logo.png.asset.json";
+import rasscoLogo from "@/assets/rassco-logo.png.asset.json";
 
-export function IMissiveLogo({ height = 54, className }: LogoProps) {
-  return (
-    <img
-      src="/brand/imissive-horizontal.png"
-      alt="iMissive"
-      className={className}
-      style={{ height, width: "auto", objectFit: "contain" }}
-      draggable={false}
-    />
-  );
-}
+export const IMissiveLogo = ({ height = 64, invert = false }: { height?: number; invert?: boolean }) => (
+  <img
+    src={imissiveLogo.url}
+    alt="iMissive"
+    style={{
+      height,
+      width: "auto",
+      objectFit: "contain",
+      filter: invert ? "brightness(0) invert(1)" : undefined,
+    }}
+    draggable={false}
+  />
+);
 
-export function IMissiveLogoNegative({ height = 54, className }: LogoProps) {
-  return (
-    <img
-      src="/brand/imissive-horizontal-negative.png"
-      alt="iMissive"
-      className={className}
-      style={{ height, width: "auto", objectFit: "contain" }}
-      draggable={false}
-    />
-  );
-}
+export const RasscoLogo = ({ height = 40 }: { height?: number }) => (
+  <img
+    src={rasscoLogo.url}
+    alt="RASSCO Group"
+    style={{ height, width: "auto", objectFit: "contain" }}
+    draggable={false}
+  />
+);
 
-export function RasscoLogo({ height = 38, className }: LogoProps) {
-  return (
-    <img
-      src="/brand/rassco-group.png"
-      alt="RASSCO Group"
-      className={className}
-      style={{ height, width: "auto", objectFit: "contain" }}
-      draggable={false}
-    />
-  );
-}
-
-export function StcLogo({ height = 64, className }: LogoProps) {
-  return (
-    <img
-      src="/brand/stc-purple.png"
-      alt="stc"
-      className={className}
-      style={{ height, width: "auto", objectFit: "contain" }}
-      draggable={false}
-    />
-  );
-}
+// stc wordmark — clean text mark in official stc purple. Never recolored or distorted.
+export const StcLogo = ({ size = 96, color = "#4F00A0" }: { size?: number; color?: string }) => (
+  <span
+    aria-label="stc"
+    style={{
+      fontFamily: "Manrope, system-ui, sans-serif",
+      fontWeight: 800,
+      fontSize: size,
+      lineHeight: 1,
+      letterSpacing: "-0.04em",
+      color,
+      display: "inline-block",
+    }}
+  >
+    stc
+  </span>
+);

@@ -1,550 +1,592 @@
-import type { ReactNode } from "react";
-import {
-  Activity,
-  BellRing,
-  Bot,
-  Braces,
-  Building2,
-  CalendarClock,
-  Check,
-  Cloud,
-  Gauge,
-  Handshake,
-  Headphones,
-  KeyRound,
-  Mail,
-  MessageSquareText,
-  MessagesSquare,
-  Network,
-  PhoneCall,
-  RadioTower,
-  Route,
-  ServerCog,
-  ShieldCheck,
-  UsersRound,
-  Workflow,
-} from "lucide-react";
-import { IMissiveLogo, IMissiveLogoNegative, RasscoLogo, StcLogo } from "../Brand";
+import { IMissiveLogo, RasscoLogo, StcLogo } from "../Brand";
 import { meta } from "@/data/deck";
 
 const PURPLE = "#492E51";
 const YELLOW = "#FDBF30";
 const TEAL = "#61C5BA";
 const ORANGE = "#F68C20";
-const PINK = "#E0357C";
 const STC_PURPLE = "#4F00A0";
 const STC_CORAL = "#FF375E";
-const INK = "#151217";
+const INK = "#0E0B12";
 const PAPER = "#F7F5F2";
-const MUTED = "#665F69";
 
-function Slide({ children, bg = PAPER, className = "" }: { children: ReactNode; bg?: string; className?: string }) {
+function SlideFrame({ children, bg = "#ffffff" }: { children: React.ReactNode; bg?: string }) {
   return (
-    <div className={`slide-content ${className}`} style={{ background: bg }}>
+    <div className="slide-content" style={{ background: bg }}>
       {children}
     </div>
   );
 }
 
-function Triangle({ color = YELLOW, size = 30 }: { color?: string; size?: number }) {
-  return (
-    <span
-      aria-hidden="true"
-      style={{
-        display: "inline-block",
-        width: 0,
-        height: 0,
-        borderTop: `${size * 0.62}px solid transparent`,
-        borderBottom: `${size * 0.62}px solid transparent`,
-        borderLeft: `${size}px solid ${color}`,
-      }}
-    />
-  );
-}
-
-function Header({ overline, title, light = false, accent = YELLOW }: { overline: string; title: string; light?: boolean; accent?: string }) {
-  return (
-    <header style={{ padding: "62px 88px 0", position: "relative", zIndex: 3 }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 18 }}>
-        <Triangle color={accent} size={14} />
-        <div className="slide-kicker" style={{ color: light ? "rgba(255,255,255,.74)" : PURPLE }}>{overline}</div>
-      </div>
-      <h2 className="slide-title-sm" style={{ margin: 0, color: light ? "#fff" : INK, maxWidth: 1500 }}>{title}</h2>
-    </header>
-  );
-}
-
-function Footer({ n, light = false }: { n: number; light?: boolean }) {
-  return (
-    <footer style={{ position: "absolute", left: 88, right: 88, bottom: 32, display: "flex", alignItems: "center", justifyContent: "space-between", zIndex: 5 }}>
-      {light ? <IMissiveLogoNegative height={24} /> : <IMissiveLogo height={24} />}
-      <span className="slide-chrome" style={{ color: light ? "rgba(255,255,255,.56)" : "#948D97", fontVariantNumeric: "tabular-nums" }}>
-        {String(n).padStart(2, "0")} / 09
-      </span>
-    </footer>
-  );
-}
-
-function Rule({ color = YELLOW, width = 72 }: { color?: string; width?: number }) {
-  return <div style={{ width, height: 6, background: color }} />;
-}
-
-/* 01 — Cover */
+/* ---------------- 1. COVER ---------------- */
 export function CoverSlide() {
   return (
-    <Slide bg={PURPLE}>
-      <div style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
-        <div style={{ position: "absolute", right: -180, top: -210, width: 820, height: 820, background: STC_PURPLE, transform: "rotate(18deg)", opacity: 0.72 }} />
-        <div style={{ position: "absolute", right: 80, bottom: -250, width: 680, height: 680, background: STC_CORAL, clipPath: "polygon(0 50%, 100% 0, 100% 100%)" }} />
-        <div style={{ position: "absolute", right: 360, top: 285, width: 0, height: 0, borderTop: "170px solid transparent", borderBottom: "170px solid transparent", borderLeft: `270px solid ${YELLOW}` }} />
-        <div className="signal-grid" style={{ position: "absolute", inset: "0 0 0 58%", opacity: 0.18 }} />
-      </div>
-
-      <div style={{ position: "absolute", top: 58, left: 82, right: 82, display: "flex", alignItems: "center", justifyContent: "space-between", zIndex: 3 }}>
-        <IMissiveLogoNegative height={52} />
-        <div style={{ width: 196, height: 112, background: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <StcLogo height={58} />
-        </div>
-      </div>
-
-      <main style={{ position: "relative", zIndex: 2, height: "100%", padding: "215px 82px 90px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-        <div style={{ maxWidth: 1110 }}>
-          <div className="slide-kicker" style={{ color: YELLOW, marginBottom: 28 }}>Strategic Partnership Discussion</div>
-          <h1 className="slide-title-xl" style={{ margin: 0, color: "#fff", maxWidth: 1020 }}>
-            Growing enterprise messaging.
-            <span style={{ display: "block", color: YELLOW }}>Together.</span>
-          </h1>
-          <div style={{ marginTop: 38, display: "flex", alignItems: "center", gap: 22 }}>
-            <Rule color={STC_CORAL} width={98} />
-            <div className="slide-body" style={{ color: "rgba(255,255,255,.74)" }}>iMissive &times; stc</div>
+    <SlideFrame bg="#ffffff">
+      <div style={{ display: "grid", gridTemplateColumns: "1.15fr 0.85fr", height: "100%" }}>
+        {/* Left — iMissive purple field */}
+        <div style={{ background: PURPLE, color: "#fff", padding: "110px 100px", position: "relative", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 28 }}>
+            <IMissiveLogo height={64} invert />
           </div>
+
+          <div>
+            <div className="slide-kicker" style={{ color: YELLOW, marginBottom: 36 }}>Strategic Partnership Discussion</div>
+            <h1 className="slide-title-xl" style={{ color: "#fff", margin: 0 }}>
+              iMissive <span style={{ color: YELLOW }}>×</span> stc
+            </h1>
+            <div style={{ height: 6, width: 160, background: YELLOW, marginTop: 44, marginBottom: 44 }} />
+            <div className="slide-subtitle" style={{ color: "#fff", opacity: 0.92, maxWidth: 820 }}>
+              Growing Enterprise Messaging Together
+            </div>
+          </div>
+
+          <div className="slide-caption" style={{ color: "#fff", opacity: 0.75 }}>
+            {meta.date}
+          </div>
+
+          {/* Connectivity geometry */}
+          <svg width="280" height="280" style={{ position: "absolute", right: -90, top: 80, opacity: 0.18 }} viewBox="0 0 280 280" fill="none">
+            <circle cx="60" cy="60" r="8" fill={YELLOW} />
+            <circle cx="220" cy="220" r="8" fill={YELLOW} />
+            <line x1="60" y1="60" x2="220" y2="220" stroke={YELLOW} strokeWidth="1.5" />
+            <circle cx="60" cy="60" r="40" stroke={YELLOW} strokeWidth="1" />
+            <circle cx="220" cy="220" r="40" stroke={YELLOW} strokeWidth="1" />
+          </svg>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1.15fr 1fr auto", gap: 48, alignItems: "end", color: "#fff" }}>
+        {/* Right — light panel with presenters + stc */}
+        <div style={{ background: "#ffffff", padding: "110px 90px", display: "flex", flexDirection: "column", justifyContent: "space-between", position: "relative" }}>
+          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+              <StcLogo size={88} color={STC_PURPLE} />
+              <div style={{ width: 3, height: 64, background: STC_CORAL }} />
+            </div>
+          </div>
+
           <div>
-            <div className="slide-kicker" style={{ color: "rgba(255,255,255,.5)", marginBottom: 14 }}>Presented by</div>
-            <div style={{ display: "flex", gap: 40, flexWrap: "wrap" }}>
+            <div className="slide-kicker" style={{ color: PURPLE, marginBottom: 28 }}>Presented by</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 26 }}>
               {meta.presenters.map((p) => (
                 <div key={p.name}>
-                  <div className="slide-caption" style={{ color: "#fff", fontWeight: 700, fontFamily: "Manrope" }}>{p.name}</div>
-                  <div style={{ color: "rgba(255,255,255,.58)", fontSize: 16, marginTop: 3 }}>{p.role}</div>
+                  <div className="slide-body-lg" style={{ color: INK, fontWeight: 700, fontFamily: "Manrope" }}>{p.name}</div>
+                  <div className="slide-caption" style={{ color: "#5a5560" }}>{p.role}</div>
                 </div>
               ))}
             </div>
           </div>
-          <div className="slide-caption" style={{ color: "rgba(255,255,255,.62)" }}>{meta.date}</div>
-          <div style={{ background: "rgba(255,255,255,.94)", padding: "13px 16px", display: "flex", alignItems: "center", gap: 12 }}>
-            <span style={{ color: "#77707A", fontSize: 15 }}>Part of</span>
-            <RasscoLogo height={30} />
+
+          <div style={{ display: "flex", alignItems: "center", gap: 16, justifyContent: "flex-end" }}>
+            <span className="slide-chrome" style={{ color: "#7a7480" }}>Part of</span>
+            <RasscoLogo height={36} />
           </div>
         </div>
-      </main>
-    </Slide>
+      </div>
+    </SlideFrame>
   );
 }
 
-/* 02 — At a glance */
+/* ---------------- shared header ---------------- */
+function SlideHeader({ kicker, title, accent = YELLOW }: { kicker: string; title: string; accent?: string }) {
+  return (
+    <div style={{ padding: "70px 110px 0", display: "flex", flexDirection: "column", gap: 18 }}>
+      <div className="slide-kicker" style={{ color: PURPLE }}>
+        <span style={{ display: "inline-block", width: 36, height: 4, background: accent, verticalAlign: "middle", marginRight: 16 }} />
+        {kicker}
+      </div>
+      <h2 className="slide-title-sm" style={{ color: INK, margin: 0, maxWidth: 1500 }}>{title}</h2>
+    </div>
+  );
+}
+
+function SlideFooter({ n }: { n: number }) {
+  return (
+    <div style={{ position: "absolute", left: 110, right: 110, bottom: 36, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+        <IMissiveLogo height={28} />
+      </div>
+      <div className="slide-chrome" style={{ color: "#9a96a0", fontVariantNumeric: "tabular-nums" }}>
+        {String(n).padStart(2, "0")} / 09
+      </div>
+    </div>
+  );
+}
+
+/* ---------------- 2. GLANCE ---------------- */
 export function GlanceSlide() {
+  const imStats = [
+    { v: "29+", l: "Years of Combined Messaging Experience", scope: "iMissive" },
+    { v: "5M", l: "Domestic Messages Managed Monthly", scope: "iMissive" },
+  ];
+  const groupStats = [
+    { v: "9", l: "Specialized Companies" },
+    { v: "2,500+", l: "Group Employees" },
+    { v: "65+", l: "Group Clients" },
+  ];
   return (
-    <Slide>
-      <Header overline="iMissive at a glance" title="Built for enterprise communication" />
-
-      <div style={{ padding: "54px 88px 0", display: "grid", gridTemplateColumns: "0.92fr 1.08fr", gap: 46, height: 700 }}>
-        <section style={{ background: PURPLE, color: "#fff", padding: "54px 58px", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", right: -86, top: -70, color: TEAL, opacity: 0.22, transform: "scale(6)" }}><Triangle color={TEAL} size={38} /></div>
-          <div className="slide-kicker" style={{ color: YELLOW }}>Messaging experience</div>
-          <div className="slide-stat" style={{ fontSize: 190, color: "#fff", marginTop: 46 }}>29+</div>
-          <div className="slide-subtitle" style={{ color: YELLOW, maxWidth: 500 }}>combined years in enterprise messaging</div>
-          <p className="slide-body" style={{ color: "rgba(255,255,255,.72)", margin: "48px 0 0", maxWidth: 620 }}>
-            A Saudi enterprise communications provider built by operators who understand scale, reliability and delivery.
+    <SlideFrame>
+      <SlideHeader kicker="iMissive at a Glance" title="Built for Enterprise Communication" />
+      <div style={{ padding: "60px 110px 0", display: "grid", gridTemplateColumns: "1fr 1.15fr", gap: 80 }}>
+        <div>
+          <p className="slide-body-lg" style={{ color: INK, maxWidth: 720, margin: 0 }}>
+            iMissive is a Saudi enterprise communications provider enabling organizations to communicate securely,
+            reliably and at scale.
           </p>
-        </section>
+          <div style={{ marginTop: 50, display: "flex", flexDirection: "column", gap: 18 }}>
+            {[
+              "Licensed Saudi SMS aggregator",
+              "Local commercial, technical and operational support",
+              "Enterprise-focused communication capabilities",
+              "Part of RASSCO Group",
+            ].map((t) => (
+              <div key={t} style={{ display: "flex", gap: 18, alignItems: "baseline" }}>
+                <span style={{ width: 10, height: 10, background: YELLOW, display: "inline-block", flexShrink: 0, marginTop: 12 }} />
+                <span className="slide-body" style={{ color: INK }}>{t}</span>
+              </div>
+            ))}
+          </div>
+        </div>
 
-        <section style={{ display: "grid", gridTemplateRows: "1fr 230px", gap: 30 }}>
-          <div style={{ background: "#fff", padding: "50px 56px", position: "relative", border: "1px solid #E5E0E6" }}>
-            <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 36 }}>
-              <div>
-                <div className="slide-kicker" style={{ color: PURPLE }}>Current domestic traffic</div>
-                <div className="slide-stat" style={{ color: PURPLE, fontSize: 190, marginTop: 34 }}>5M</div>
-                <div className="slide-subtitle" style={{ color: INK }}>messages managed monthly</div>
+        <div>
+          <div className="slide-kicker" style={{ color: PURPLE, marginBottom: 18 }}>
+            <span style={{ display: "inline-block", width: 22, height: 3, background: YELLOW, marginRight: 12, verticalAlign: "middle" }} />
+            iMissive
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 36, marginBottom: 50 }}>
+            {imStats.map((s) => (
+              <div key={s.l} style={{ borderTop: `3px solid ${YELLOW}`, paddingTop: 18 }}>
+                <div className="slide-stat-sm" style={{ color: PURPLE }}>{s.v}</div>
+                <div className="slide-caption" style={{ color: "#5a5560", marginTop: 8 }}>{s.l}</div>
               </div>
-              <div style={{ width: 150, height: 150, background: YELLOW, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <MessageSquareText size={72} color={PURPLE} strokeWidth={1.7} />
-              </div>
-            </div>
-            <div style={{ position: "absolute", left: 56, bottom: 44, display: "flex", gap: 30 }}>
-              {["Licensed Saudi SMS aggregator", "Local technical and operational support"].map((item) => (
-                <div key={item} className="slide-caption" style={{ display: "flex", alignItems: "center", gap: 10, color: MUTED }}>
-                  <Check size={22} color={TEAL} strokeWidth={3} /> {item}
-                </div>
-              ))}
-            </div>
+            ))}
           </div>
 
-          <div style={{ background: "#fff", borderLeft: `10px solid ${TEAL}`, padding: "28px 38px", display: "grid", gridTemplateColumns: "auto 1fr", gap: 34, alignItems: "center" }}>
-            <RasscoLogo height={60} />
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
-              {[
-                ["9", "specialized companies"],
-                ["2,500+", "group employees"],
-                ["65+", "group clients"],
-              ].map(([value, label]) => (
-                <div key={label} style={{ borderLeft: "1px solid #DDD6DE", paddingLeft: 24 }}>
-                  <div style={{ fontFamily: "Manrope", fontSize: 48, fontWeight: 800, color: INK }}>{value}</div>
-                  <div style={{ fontSize: 17, color: MUTED, marginTop: 4 }}>{label}</div>
-                </div>
-              ))}
-            </div>
+          <div className="slide-kicker" style={{ color: PURPLE, marginBottom: 18 }}>
+            <span style={{ display: "inline-block", width: 22, height: 3, background: TEAL, marginRight: 12, verticalAlign: "middle" }} />
+            RASSCO Group
           </div>
-        </section>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 28 }}>
+            {groupStats.map((s) => (
+              <div key={s.l} style={{ borderTop: `3px solid ${TEAL}`, paddingTop: 16 }}>
+                <div className="slide-stat-sm" style={{ color: INK, fontSize: 64 }}>{s.v}</div>
+                <div className="slide-caption" style={{ color: "#5a5560", marginTop: 6 }}>{s.l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-      <Footer n={2} />
-    </Slide>
+      <SlideFooter n={2} />
+    </SlideFrame>
   );
 }
 
-/* 03 — Scale */
+/* ---------------- 3. SCALE ---------------- */
 export function ScaleSlide() {
-  const proof = [
-    { value: "100 TPS", label: "per SMPP session", icon: Activity },
-    { value: "Up to 10", label: "sessions per customer", icon: Network },
-    { value: "24/7", label: "platform monitoring", icon: Headphones },
+  const nodes = [
+    "Enterprise Customers",
+    "API & SMPP Gateway",
+    "iMissive Messaging Platform",
+    "Intelligent Routing",
+    "stc On-Net Connectivity",
   ];
-  const flow = ["Enterprise", "API / SMPP", "iMissive Core", "Routing", "stc On-Net"];
+  const stats = [
+    { v: "300 TPS", l: "Stress-Tested API Throughput" },
+    { v: "100 TPS", l: "Per SMPP Session" },
+    { v: "Up to 10", l: "SMPP Sessions Per Customer" },
+    { v: "24/7", l: "Platform Monitoring" },
+  ];
   return (
-    <Slide bg={INK}>
-      <Header overline="Engineered for scale" title="Infrastructure ready for high-volume operations" light />
+    <SlideFrame>
+      <SlideHeader kicker="Engineered for Scale" title="Infrastructure Ready for High-Volume Operations" />
+      <div style={{ padding: "30px 110px 0" }}>
+        <div className="slide-subtitle" style={{ color: PURPLE, fontWeight: 700, marginBottom: 50 }}>
+          Tested. Resilient. Ready to Scale.
+        </div>
 
-      <div style={{ padding: "52px 88px 0", display: "grid", gridTemplateColumns: "1.02fr .98fr", gap: 72 }}>
-        <section style={{ position: "relative" }}>
-          <div className="slide-kicker" style={{ color: TEAL }}>Stress-tested API throughput</div>
-          <div className="slide-stat" style={{ fontSize: 225, color: YELLOW, marginTop: 28 }}>300</div>
-          <div style={{ display: "flex", alignItems: "center", gap: 24, marginTop: 2 }}>
-            <div className="slide-title-sm" style={{ color: "#fff" }}>TPS</div>
-            <Rule color={STC_CORAL} width={110} />
-          </div>
-          <p className="slide-body" style={{ color: "rgba(255,255,255,.62)", maxWidth: 690, marginTop: 40 }}>
-            Tested under load, with failover, backup and delivery visibility built into the operating model.
-          </p>
-        </section>
+        {/* Flow */}
+        <div style={{ display: "flex", alignItems: "stretch", gap: 0, marginBottom: 60 }}>
+          {nodes.map((n, i) => {
+            const isStc = i === nodes.length - 1;
+            return (
+              <div key={n} style={{ display: "flex", alignItems: "center", flex: 1 }}>
+                <div style={{
+                  flex: 1,
+                  border: `2px solid ${isStc ? STC_PURPLE : PURPLE}`,
+                  borderRadius: 8,
+                  padding: "22px 18px",
+                  minHeight: 120,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textAlign: "center",
+                  background: isStc ? STC_PURPLE : i === 2 ? PURPLE : "#fff",
+                  color: isStc || i === 2 ? "#fff" : INK,
+                }}>
+                  <span className="slide-body" style={{ fontWeight: 600, fontFamily: "Manrope" }}>{n}</span>
+                </div>
+                {i < nodes.length - 1 && (
+                  <svg width="42" height="20" viewBox="0 0 42 20" style={{ flexShrink: 0 }}>
+                    <line x1="0" y1="10" x2="34" y2="10" stroke={YELLOW} strokeWidth="3" />
+                    <polygon points="34,4 42,10 34,16" fill={YELLOW} />
+                  </svg>
+                )}
+              </div>
+            );
+          })}
+        </div>
 
-        <section style={{ paddingTop: 8 }}>
-          {proof.map(({ value, label, icon: Icon }, index) => (
-            <div key={label} style={{ display: "grid", gridTemplateColumns: "78px 1fr", gap: 26, alignItems: "center", padding: "25px 0", borderBottom: "1px solid rgba(255,255,255,.12)" }}>
-              <div style={{ width: 70, height: 70, background: index === 0 ? PURPLE : index === 1 ? TEAL : STC_PURPLE, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <Icon size={34} color="#fff" strokeWidth={1.8} />
-              </div>
-              <div>
-                <div style={{ fontFamily: "Manrope", fontSize: 52, fontWeight: 800, color: "#fff" }}>{value}</div>
-                <div className="slide-caption" style={{ color: "rgba(255,255,255,.55)" }}>{label}</div>
-              </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32, marginBottom: 40 }}>
+          {stats.map((s) => (
+            <div key={s.l} style={{ borderTop: `3px solid ${YELLOW}`, paddingTop: 16 }}>
+              <div className="slide-stat-sm" style={{ color: PURPLE, fontSize: 72 }}>{s.v}</div>
+              <div className="slide-caption" style={{ color: "#5a5560", marginTop: 8 }}>{s.l}</div>
             </div>
           ))}
-        </section>
-      </div>
+        </div>
 
-      <div style={{ position: "absolute", left: 88, right: 88, bottom: 92, height: 155, background: "#fff", padding: "26px 34px", display: "grid", gridTemplateColumns: "repeat(9, auto)", alignItems: "center", justifyContent: "space-between" }}>
-        {flow.map((item, index) => (
-          <div key={item} style={{ display: "contents" }}>
-            <div style={{ minWidth: index === 2 ? 240 : 180, textAlign: "center" }}>
-              <div style={{ width: 12, height: 12, background: index === 4 ? STC_CORAL : index === 2 ? YELLOW : TEAL, margin: "0 auto 16px" }} />
-              <div style={{ fontFamily: "Manrope", fontSize: 21, fontWeight: 700, color: index === 2 ? PURPLE : INK }}>{item}</div>
+        <div style={{ display: "flex", gap: 32, flexWrap: "wrap" }}>
+          {["Failover mechanism", "Backup and recovery", "Delivery reporting", "Scalable session capacity"].map((t) => (
+            <div key={t} className="slide-caption" style={{ color: "#5a5560" }}>
+              <span style={{ color: TEAL, marginRight: 10, fontWeight: 700 }}>—</span>{t}
             </div>
-            {index < flow.length - 1 && <div style={{ width: 76, height: 2, background: "#D8D1DA", position: "relative" }}><span style={{ position: "absolute", right: -2, top: -4, width: 9, height: 9, borderTop: "2px solid #D8D1DA", borderRight: "2px solid #D8D1DA", transform: "rotate(45deg)" }} /></div>}
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-      <Footer n={3} light />
-    </Slide>
+      <SlideFooter n={3} />
+    </SlideFrame>
   );
 }
 
-/* 04 — Ecosystem */
+/* ---------------- 4. ECOSYSTEM ---------------- */
 export function EcosystemSlide() {
-  const services = [
-    { name: "OTP & Authentication", icon: KeyRound, color: YELLOW },
-    { name: "WhatsApp Business", icon: MessagesSquare, color: TEAL },
-    { name: "RCS Messaging", icon: RadioTower, color: STC_CORAL },
-    { name: "AI Chatbots", icon: Bot, color: ORANGE },
-    { name: "AI Voice Agents", icon: PhoneCall, color: PINK },
-    { name: "Push Notifications", icon: BellRing, color: TEAL },
-    { name: "Enterprise APIs", icon: Braces, color: YELLOW },
-    { name: "Email-to-SMS", icon: Mail, color: STC_CORAL },
+  const satellites = [
+    "OTP & Authentication",
+    "WhatsApp Business",
+    "RCS Messaging",
+    "AI Chatbots",
+    "AI Voice Agents",
+    "Push Notifications",
+    "Enterprise APIs",
+    "Email-to-SMS",
   ];
+  // Position 8 satellites around center
+  const cx = 600, cy = 500, r = 340;
   return (
-    <Slide bg="#fff">
-      <Header overline="Communication ecosystem" title="SMS at the core. More channels around it." />
+    <SlideFrame>
+      <SlideHeader kicker="Communication Ecosystem" title="SMS at the Core. More Channels Around It." />
+      <div style={{ padding: "30px 110px 0", display: "grid", gridTemplateColumns: "1.05fr 1fr", gap: 40, alignItems: "start" }}>
+        {/* Diagram */}
+        <div style={{ position: "relative", height: 820 }}>
+          <svg viewBox="0 0 1200 1000" width="100%" height="100%">
+            {satellites.map((_, i) => {
+              const angle = (i / satellites.length) * Math.PI * 2 - Math.PI / 2;
+              const x = cx + Math.cos(angle) * r;
+              const y = cy + Math.sin(angle) * r;
+              return <line key={i} x1={cx} y1={cy} x2={x} y2={y} stroke={PURPLE} strokeOpacity="0.25" strokeWidth="1.5" />;
+            })}
+            <circle cx={cx} cy={cy} r="210" fill={PURPLE} />
+            <circle cx={cx} cy={cy} r="228" fill="none" stroke={YELLOW} strokeWidth="3" />
+            <text x={cx} y={cy - 10} textAnchor="middle" fill="#fff" fontFamily="Manrope" fontWeight="800" fontSize="58" letterSpacing="-0.02em">Enterprise</text>
+            <text x={cx} y={cy + 72} textAnchor="middle" fill={YELLOW} fontFamily="Manrope" fontWeight="800" fontSize="92" letterSpacing="-0.03em">SMS</text>
+            {satellites.map((s, i) => {
+              const angle = (i / satellites.length) * Math.PI * 2 - Math.PI / 2;
+              const x = cx + Math.cos(angle) * r;
+              const y = cy + Math.sin(angle) * r;
+              const anchor = Math.cos(angle) > 0.25 ? "start" : Math.cos(angle) < -0.25 ? "end" : "middle";
+              const dx = Math.cos(angle) > 0.25 ? 24 : Math.cos(angle) < -0.25 ? -24 : 0;
+              const dy = Math.sin(angle) > 0.6 ? 48 : Math.sin(angle) < -0.6 ? -24 : 8;
+              return (
+                <g key={s}>
+                  <circle cx={x} cy={y} r="12" fill={i % 2 === 0 ? TEAL : ORANGE} />
+                  <text x={x + dx} y={y + dy} textAnchor={anchor} fill={INK} fontFamily="Inter" fontWeight="600" fontSize="26">
+                    {s}
+                  </text>
+                </g>
+              );
+            })}
+          </svg>
+        </div>
 
-      <div style={{ padding: "46px 88px 0", display: "grid", gridTemplateColumns: "610px 1fr", gap: 82, alignItems: "center" }}>
-        <section style={{ height: 690, background: PURPLE, color: "#fff", position: "relative", padding: "62px 58px", overflow: "hidden" }}>
-          <div className="signal-grid" style={{ position: "absolute", inset: 0, opacity: 0.16 }} />
-          <div style={{ position: "relative", zIndex: 2 }}>
-            <MessageSquareText size={74} color={YELLOW} strokeWidth={1.6} />
-            <div className="slide-kicker" style={{ color: "rgba(255,255,255,.6)", marginTop: 48 }}>The operational core</div>
-            <div style={{ fontFamily: "Manrope", fontSize: 116, fontWeight: 800, lineHeight: 0.95, color: "#fff", marginTop: 18 }}>Enterprise<br /><span style={{ color: YELLOW }}>SMS</span></div>
-            <p className="slide-body" style={{ color: "rgba(255,255,255,.68)", margin: "45px 0 0", maxWidth: 460 }}>
-              Integration, governance and measurable delivery from one local operating team.
-            </p>
+        {/* Statement */}
+        <div style={{ paddingTop: 80 }}>
+          <div style={{ width: 80, height: 4, background: YELLOW, marginBottom: 32 }} />
+          <p className="slide-body-lg" style={{ color: INK, maxWidth: 720, margin: 0 }}>
+            A unified communication foundation designed for enterprise integration, governance and measurable delivery.
+          </p>
+          <div style={{ marginTop: 50, display: "flex", flexDirection: "column", gap: 12 }}>
+            <div className="slide-caption" style={{ color: "#5a5560" }}>One platform. One contract. One operational team.</div>
           </div>
-          <div style={{ position: "absolute", right: -80, bottom: -60, color: TEAL, transform: "scale(5)", opacity: .22 }}><Triangle color={TEAL} size={30} /></div>
-        </section>
-
-        <section style={{ display: "grid", gridTemplateColumns: "1fr 1fr", columnGap: 52, rowGap: 0 }}>
-          {services.map(({ name, icon: Icon, color }, index) => (
-            <div key={name} style={{ minHeight: 135, display: "grid", gridTemplateColumns: "62px 1fr", gap: 22, alignItems: "center", borderBottom: index < 6 ? "1px solid #E6E0E7" : "none" }}>
-              <div style={{ width: 58, height: 58, background: color, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <Icon size={29} color={color === YELLOW || color === TEAL ? PURPLE : "#fff"} strokeWidth={1.9} />
-              </div>
-              <div style={{ fontFamily: "Manrope", fontSize: 24, fontWeight: 700, color: INK }}>{name}</div>
-            </div>
-          ))}
-        </section>
+        </div>
       </div>
-      <Footer n={4} />
-    </Slide>
+      <SlideFooter n={4} />
+    </SlideFrame>
   );
 }
 
-/* 05 — Existing relationship */
+/* ---------------- 5. RELATIONSHIP ---------------- */
 export function RelationshipSlide() {
   const pillars = [
-    { n: "01", title: "Messaging", icon: MessageSquareText, color: STC_PURPLE, lines: ["Contracted stc On-Net relationship", "Domestic Saudi traffic", "Monthly usage-based billing"] },
-    { n: "02", title: "Cloud", icon: Cloud, color: TEAL, lines: ["Saudi-based SCCC Alibaba Cloud", "Part of a wider ecosystem that includes stc Group"] },
-    { n: "03", title: "Operations", icon: Workflow, color: YELLOW, lines: ["Established account management", "Active commercial and operational touchpoints"] },
+    {
+      t: "Enterprise Messaging",
+      items: ["Existing contracted stc On-Net relationship", "Monthly usage-based billing", "Domestic Saudi traffic"],
+    },
+    {
+      t: "Cloud Infrastructure",
+      items: [
+        "Saudi-based infrastructure through SCCC Alibaba Cloud",
+        "SCCC Alibaba Cloud was formed through partnerships that include stc Group",
+      ],
+    },
+    {
+      t: "Operational Alignment",
+      items: ["Existing account management relationship", "Established operational and commercial engagement"],
+    },
   ];
   return (
-    <Slide>
-      <div style={{ position: "absolute", top: 0, right: 0, width: 520, height: 250, background: STC_PURPLE }} />
-      <div style={{ position: "absolute", top: 0, right: 520, width: 250, height: 250, background: STC_CORAL, clipPath: "polygon(100% 0, 0 0, 100% 100%)" }} />
-      <div style={{ position: "absolute", top: 62, right: 92, width: 188, height: 102, background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 4 }}><StcLogo height={52} /></div>
-      <Header overline="Already within the stc ecosystem" title="An existing relationship with room to grow" accent={STC_CORAL} />
-
-      <div style={{ padding: "70px 88px 0" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 22 }}>
-          {pillars.map(({ n, title, icon: Icon, color, lines }) => (
-            <section key={title} style={{ background: "#fff", minHeight: 440, padding: "38px 38px 34px", borderTop: `9px solid ${color}`, position: "relative" }}>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                <div style={{ width: 68, height: 68, background: color, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <Icon size={34} color={color === YELLOW || color === TEAL ? PURPLE : "#fff"} strokeWidth={1.8} />
-                </div>
-                <span style={{ fontFamily: "Manrope", fontSize: 22, fontWeight: 800, color: "#A19AA5" }}>{n}</span>
+    <SlideFrame>
+      {/* Left stc colour band */}
+      <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 18, background: STC_PURPLE }} />
+      <SlideHeader kicker="Already Within the stc Ecosystem" title="An Existing Relationship with Room to Grow" accent={STC_CORAL} />
+      <div style={{ padding: "60px 110px 0" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 56 }}>
+          {pillars.map((p, i) => (
+            <div key={p.t} style={{ paddingTop: 18, borderTop: `4px solid ${i === 0 ? STC_PURPLE : i === 1 ? TEAL : YELLOW}` }}>
+              <div className="slide-chrome" style={{ color: "#9a96a0", marginBottom: 14, fontVariantNumeric: "tabular-nums" }}>{`0${i + 1}`}</div>
+              <h3 className="slide-title-sm" style={{ color: INK, fontSize: 40, margin: 0, marginBottom: 24 }}>{p.t}</h3>
+              <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                {p.items.map((it) => (
+                  <div key={it} className="slide-body" style={{ color: "#3d3742", fontSize: 24, lineHeight: 1.4 }}>{it}</div>
+                ))}
               </div>
-              <h3 style={{ fontFamily: "Manrope", fontSize: 42, margin: "32px 0 26px", color: INK }}>{title}</h3>
-              <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-                {lines.map((line) => <div key={line} className="slide-caption" style={{ color: MUTED, paddingBottom: 16, borderBottom: "1px solid #EEE9EF" }}>{line}</div>)}
-              </div>
-            </section>
+            </div>
           ))}
         </div>
-
-        <div style={{ marginTop: 42, display: "flex", alignItems: "center", gap: 28 }}>
-          <Rule color={STC_CORAL} width={100} />
-          <p className="slide-body-lg" style={{ margin: 0, color: INK, maxWidth: 1440 }}>
-            iMissive is already invested in the broader <strong style={{ color: STC_PURPLE }}>stc ecosystem</strong> through messaging connectivity and Saudi-based cloud infrastructure.
+        <div style={{ marginTop: 70, maxWidth: 1400 }}>
+          <p className="slide-body-lg" style={{ color: INK, margin: 0 }}>
+            iMissive is already invested in the broader <span style={{ color: STC_PURPLE, fontWeight: 700 }}>stc</span> ecosystem
+            through enterprise messaging connectivity and Saudi-based cloud infrastructure.
           </p>
         </div>
       </div>
-      <Footer n={5} />
-    </Slide>
+      <SlideFooter n={5} />
+    </SlideFrame>
   );
 }
 
-/* 06 — Vision */
+/* ---------------- 6. VISION ---------------- */
 export function VisionSlide() {
-  const pillars = [
-    [Gauge, "Scale domestic volume"],
-    [Building2, "Grow enterprise customers"],
-    [Handshake, "Strengthen operator relationships"],
-    [Network, "Expand multi-channel adoption"],
-  ] as const;
   return (
-    <Slide bg="#fff">
-      <Header overline="Our 12-month vision" title="From proven infrastructure to scaled market impact" />
-
-      <div style={{ padding: "40px 88px 0", position: "relative" }}>
-        <div style={{ height: 460, background: PAPER, position: "relative", overflow: "hidden" }}>
-          <div className="signal-grid" style={{ position: "absolute", inset: 0, opacity: .5 }} />
-          <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 300, background: PURPLE, clipPath: "polygon(0 88%, 100% 0, 100% 100%, 0 100%)" }} />
-
-          <div style={{ position: "absolute", left: 58, top: 56 }}>
-            <div className="slide-kicker" style={{ color: MUTED }}>Today</div>
-            <div className="slide-stat" style={{ fontSize: 142, color: INK, marginTop: 12 }}>5M</div>
-            <div className="slide-caption" style={{ color: MUTED }}>messages per month</div>
+    <SlideFrame>
+      <SlideHeader kicker="Our 12-Month Vision" title="From Proven Infrastructure to Scaled Market Impact" />
+      <div style={{ padding: "40px 110px 0" }}>
+        {/* Hero growth */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr auto", alignItems: "center", gap: 40 }}>
+          <div>
+            <div className="slide-chrome" style={{ color: "#9a96a0", marginBottom: 10 }}>TODAY</div>
+            <div className="slide-stat" style={{ color: INK, fontSize: 140 }}>5M</div>
+            <div className="slide-caption" style={{ color: "#5a5560" }}>messages per month</div>
           </div>
-
-          <div style={{ position: "absolute", left: "48%", top: 45, background: YELLOW, color: PURPLE, width: 146, height: 146, borderRadius: "50%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-            <div style={{ fontFamily: "Manrope", fontSize: 56, lineHeight: 1, fontWeight: 800 }}>7&times;</div>
-            <div style={{ fontSize: 15, fontWeight: 700, marginTop: 7 }}>GROWTH</div>
+          <svg width="160" height="60" viewBox="0 0 160 60">
+            <line x1="0" y1="30" x2="140" y2="30" stroke={PURPLE} strokeWidth="4" />
+            <polygon points="140,18 160,30 140,42" fill={PURPLE} />
+          </svg>
+          <div>
+            <div className="slide-chrome" style={{ color: YELLOW, marginBottom: 10, fontWeight: 700 }}>12-MONTH AMBITION</div>
+            <div className="slide-stat" style={{ color: PURPLE, fontSize: 160 }}>35M</div>
+            <div className="slide-caption" style={{ color: "#5a5560" }}>messages per month</div>
           </div>
-
-          <div style={{ position: "absolute", right: 62, top: 58, textAlign: "right" }}>
-            <div className="slide-kicker" style={{ color: YELLOW }}>12-month ambition</div>
-            <div className="slide-stat" style={{ fontSize: 170, color: "#fff", marginTop: 12 }}>35M</div>
-            <div className="slide-caption" style={{ color: "rgba(255,255,255,.68)" }}>messages per month</div>
-          </div>
-
-          <div style={{ position: "absolute", left: "37%", bottom: 34, display: "flex", alignItems: "center", gap: 18, color: "#fff" }}>
-            <span className="slide-caption" style={{ opacity: .58 }}>Annualized</span>
-            <strong style={{ fontFamily: "Manrope", fontSize: 32 }}>60M</strong>
-            <span style={{ color: YELLOW, fontSize: 34 }}>→</span>
-            <strong style={{ fontFamily: "Manrope", fontSize: 42, color: YELLOW }}>420M</strong>
-            <span className="slide-caption" style={{ opacity: .58 }}>target run rate</span>
+          <div style={{ borderLeft: `4px solid ${YELLOW}`, paddingLeft: 28 }}>
+            <div className="slide-stat" style={{ color: YELLOW, fontSize: 140, fontWeight: 800 }}>7×</div>
+            <div className="slide-caption" style={{ color: "#5a5560", maxWidth: 200 }}>monthly volume growth ambition</div>
           </div>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 22, marginTop: 34 }}>
-          {pillars.map(([Icon, label], index) => (
-            <div key={label} style={{ display: "grid", gridTemplateColumns: "58px 1fr", gap: 18, alignItems: "center", padding: "20px 0", borderTop: `4px solid ${[YELLOW, TEAL, STC_CORAL, PURPLE][index]}` }}>
-              <Icon size={34} color={PURPLE} strokeWidth={1.8} />
-              <span style={{ fontFamily: "Manrope", fontSize: 21, fontWeight: 700, color: INK }}>{label}</span>
+        {/* Annualized */}
+        <div style={{ display: "flex", alignItems: "center", gap: 28, marginTop: 50, paddingTop: 28, borderTop: `1px solid #e6e3df` }}>
+          <div className="slide-chrome" style={{ color: "#9a96a0" }}>ANNUALIZED</div>
+          <div className="slide-subtitle" style={{ color: INK, fontWeight: 700 }}>60M</div>
+          <div className="slide-caption" style={{ color: "#9a96a0" }}>current</div>
+          <svg width="60" height="20"><line x1="0" y1="10" x2="46" y2="10" stroke={PURPLE} strokeWidth="2" /><polygon points="46,4 60,10 46,16" fill={PURPLE} /></svg>
+          <div className="slide-subtitle" style={{ color: PURPLE, fontWeight: 700 }}>420M</div>
+          <div className="slide-caption" style={{ color: YELLOW, fontWeight: 600 }}>targeted run rate · 12-month ambition</div>
+        </div>
+
+        {/* Pillars */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 28, marginTop: 50 }}>
+          {[
+            "Scale domestic messaging volume",
+            "Grow the enterprise customer base",
+            "Strengthen strategic operator relationships",
+            "Expand multi-channel adoption",
+          ].map((p, i) => (
+            <div key={p} style={{ borderTop: `3px solid ${YELLOW}`, paddingTop: 16 }}>
+              <div className="slide-chrome" style={{ color: "#9a96a0", marginBottom: 8 }}>{`0${i + 1}`}</div>
+              <div className="slide-body" style={{ color: INK, fontSize: 24, fontWeight: 600, fontFamily: "Manrope" }}>{p}</div>
             </div>
           ))}
         </div>
+
+        <p className="slide-caption" style={{ color: "#5a5560", marginTop: 40, maxWidth: 1200 }}>
+          The infrastructure is already in place. The next phase is focused on accelerating commercial scale.
+        </p>
       </div>
-      <Footer n={6} />
-    </Slide>
+      <SlideFooter n={6} />
+    </SlideFrame>
   );
 }
 
-/* 07 — Why iMissive */
+/* ---------------- 7. WHY IMISSIVE ---------------- */
 export function WhySlide() {
-  const reasons = [
-    { icon: UsersRound, title: "Industry experience", proof: "29+ years of combined messaging expertise", color: YELLOW },
-    { icon: ServerCog, title: "Technical readiness", proof: "Stress-tested API and SMPP infrastructure", color: TEAL },
-    { icon: Route, title: "Local execution", proof: "Saudi market understanding and responsive support", color: STC_CORAL },
-    { icon: ShieldCheck, title: "Enterprise governance", proof: "Reporting, sender management and structured operations", color: PINK },
+  const themes = [
+    { n: "01", t: "Industry Experience", d: "29+ years of combined messaging expertise" },
+    { n: "02", t: "Technical Readiness", d: "Stress-tested, high-volume API and SMPP infrastructure" },
+    { n: "03", t: "Local Execution", d: "Saudi market understanding and responsive local support" },
+    { n: "04", t: "Enterprise Governance", d: "Reporting, sender management, permissions and structured operations" },
   ];
   return (
-    <Slide bg={INK}>
-      <Header overline="Why iMissive for enterprise opportunities" title="A capable local partner for enterprise messaging" light />
-      <div style={{ padding: "62px 88px 0", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 2 }}>
-        {reasons.map(({ icon: Icon, title, proof, color }, index) => (
-          <section key={title} style={{ minHeight: 570, background: index % 2 === 0 ? "#211D24" : "#29232C", padding: "40px 34px", position: "relative" }}>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-              <div style={{ width: 72, height: 72, background: color, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <Icon size={36} color={color === YELLOW || color === TEAL ? PURPLE : "#fff"} strokeWidth={1.7} />
+    <SlideFrame>
+      <SlideHeader kicker="Why iMissive for Enterprise Opportunities" title="A Capable Local Partner for Enterprise Messaging" />
+      <div style={{ padding: "70px 110px 0", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "60px 90px" }}>
+        {themes.map((th) => (
+          <div key={th.n} style={{ borderTop: `3px solid ${YELLOW}`, paddingTop: 24 }}>
+            <div style={{ display: "flex", alignItems: "baseline", gap: 28 }}>
+              <div className="slide-stat-sm" style={{ color: PURPLE, fontSize: 88 }}>{th.n}</div>
+              <div>
+                <h3 className="slide-title-sm" style={{ color: INK, fontSize: 42, margin: 0, marginBottom: 12 }}>{th.t}</h3>
+                <div className="slide-body" style={{ color: "#3d3742", maxWidth: 520 }}>{th.d}</div>
               </div>
-              <span style={{ fontFamily: "Manrope", fontSize: 22, color: "rgba(255,255,255,.34)" }}>0{index + 1}</span>
             </div>
-            <h3 style={{ fontFamily: "Manrope", fontSize: 37, lineHeight: 1.12, margin: "58px 0 28px", color: "#fff" }}>{title}</h3>
-            <p className="slide-body" style={{ color: "rgba(255,255,255,.6)", margin: 0 }}>{proof}</p>
-            <div style={{ position: "absolute", left: 34, right: 34, bottom: 34, height: 7, background: color }} />
-          </section>
+          </div>
         ))}
       </div>
-      <div style={{ position: "absolute", left: 350, bottom: 38, color: "rgba(255,255,255,.56)", fontSize: 17 }}>
-        Specialized local agility. Enterprise-grade execution. Institutional backing from RASSCO Group.
+      <div style={{ padding: "60px 110px 0" }}>
+        <p className="slide-body-lg" style={{ color: INK, margin: 0, maxWidth: 1500, borderLeft: `4px solid ${YELLOW}`, paddingLeft: 28 }}>
+          iMissive combines the agility of a specialized local provider with the infrastructure and institutional backing required for enterprise delivery.
+        </p>
       </div>
-      <Footer n={7} light />
-    </Slide>
+      <SlideFooter n={7} />
+    </SlideFrame>
   );
 }
 
-/* 08 — Partnership */
+/* ---------------- 8. PARTNERSHIP ---------------- */
 export function PartnershipSlide() {
   const areas = [
-    { title: "Enterprise opportunity referrals", text: "Consider iMissive for suitable opportunities requiring a qualified local messaging provider.", icon: Route },
-    { title: "Joint enterprise engagement", text: "Collaborate on strategic accounts requiring integration, reporting and local operations.", icon: Handshake },
-    { title: "Growth-enabled payment terms", text: "Extend payment terms to 60 days to support larger enterprise commitments.", icon: CalendarClock },
-    { title: "Structured coordination", text: "Establish clear commercial and operational owners with regular business reviews.", icon: Workflow },
+    {
+      t: "Enterprise Opportunity Referrals",
+      d: "Consider iMissive among qualified local providers for suitable enterprise messaging opportunities.",
+      c: STC_PURPLE,
+    },
+    {
+      t: "Joint Enterprise Engagement",
+      d: "Collaborate on strategic accounts requiring platform integration, reporting and local operational support.",
+      c: STC_CORAL,
+    },
+    {
+      t: "Growth-Enabled Payment Terms",
+      d: "Extend payment terms to 60 days to support larger enterprise commitments and sustainable traffic growth.",
+      c: YELLOW,
+    },
+    {
+      t: "Structured Coordination",
+      d: "Establish clear commercial and operational points of contact with regular business reviews.",
+      c: PURPLE,
+    },
   ];
   return (
-    <Slide bg={STC_PURPLE}>
-      <div style={{ position: "absolute", right: -130, bottom: -180, width: 720, height: 720, background: STC_CORAL, clipPath: "polygon(0 50%, 100% 0, 100% 100%)" }} />
-      <div style={{ position: "absolute", right: 130, top: 70, width: 176, height: 100, background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 4 }}><StcLogo height={50} /></div>
-      <Header overline="Discussion framework" title="A partnership model for mutual growth" light accent={STC_CORAL} />
-
-      <div style={{ padding: "56px 88px 0", display: "grid", gridTemplateColumns: "540px 1fr", gap: 84 }}>
-        <section>
-          <div className="slide-kicker" style={{ color: "rgba(255,255,255,.54)" }}>The shared opportunity</div>
-          <h3 style={{ fontFamily: "Manrope", fontSize: 62, lineHeight: 1.08, margin: "28px 0", color: "#fff" }}>
-            stc market reach
-            <span style={{ display: "block", color: STC_CORAL }}>meets</span>
-            iMissive execution.
-          </h3>
-          <p className="slide-body" style={{ color: "rgba(255,255,255,.64)", maxWidth: 500 }}>
-            A practical model designed to convert enterprise opportunities into sustainable messaging traffic.
-          </p>
-        </section>
-
-        <section style={{ background: "#fff", padding: "30px 42px" }}>
-          {areas.map(({ title, text, icon: Icon }, index) => (
-            <div key={title} style={{ display: "grid", gridTemplateColumns: "70px 1fr", gap: 24, alignItems: "center", minHeight: 142, borderBottom: index < areas.length - 1 ? "1px solid #E7E1E8" : "none" }}>
-              <div style={{ width: 60, height: 60, background: index === 2 ? YELLOW : index === 1 ? STC_CORAL : PURPLE, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <Icon size={30} color={index === 2 ? PURPLE : "#fff"} strokeWidth={1.8} />
-              </div>
-              <div>
-                <h3 style={{ fontFamily: "Manrope", fontSize: 27, margin: 0, color: INK }}>{title}</h3>
-                <p style={{ fontSize: 19, lineHeight: 1.38, color: MUTED, margin: "8px 0 0", maxWidth: 690 }}>{text}</p>
-              </div>
-            </div>
-          ))}
-        </section>
+    <SlideFrame>
+      <div style={{ background: STC_PURPLE, color: "#fff", padding: "60px 110px 50px" }}>
+        <div className="slide-kicker" style={{ color: "#fff", opacity: 0.75, marginBottom: 14 }}>
+          Partnership Model
+        </div>
+        <h2 className="slide-title-sm" style={{ color: "#fff", margin: 0 }}>A Partnership Model for Mutual Growth</h2>
+        <div className="slide-subtitle" style={{ color: STC_CORAL, marginTop: 18, fontWeight: 600 }}>
+          Combining stc's Market Reach with iMissive's Enterprise Execution
+        </div>
       </div>
-      <Footer n={8} light />
-    </Slide>
+
+      <div style={{ padding: "60px 110px 0", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "50px 80px" }}>
+        {areas.map((a, i) => (
+          <div key={a.t} style={{ paddingLeft: 28, borderLeft: `4px solid ${a.c}` }}>
+            <div className="slide-chrome" style={{ color: "#9a96a0", marginBottom: 8 }}>{`0${i + 1}`}</div>
+            <h3 className="slide-title-sm" style={{ color: INK, fontSize: 38, margin: 0, marginBottom: 14 }}>{a.t}</h3>
+            <div className="slide-body" style={{ color: "#3d3742", maxWidth: 640, fontSize: 24, lineHeight: 1.45 }}>{a.d}</div>
+          </div>
+        ))}
+      </div>
+      <SlideFooter n={8} />
+    </SlideFrame>
   );
 }
 
-/* 09 — Closing */
+/* ---------------- 9. CLOSING ---------------- */
 export function ClosingSlide() {
   const steps = [
-    "Confirm the enterprise referral path",
+    "Confirm the appropriate enterprise referral path",
     "Identify commercial and operational owners",
     "Review the 60-day payment-term request",
-    "Select initial opportunities for collaboration",
+    "Select initial enterprise opportunities for collaboration",
     "Establish a regular business review cadence",
   ];
   return (
-    <Slide bg={YELLOW}>
-      <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 690, background: "#fff" }} />
-      <div style={{ position: "absolute", left: 0, bottom: 0, width: 760, height: 310, background: PURPLE, clipPath: "polygon(0 48%, 100% 100%, 0 100%)" }} />
+    <SlideFrame>
+      <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", height: "100%" }}>
+        {/* Left — statement */}
+        <div style={{ background: PURPLE, color: "#fff", padding: "100px 90px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+          <div className="slide-kicker" style={{ color: YELLOW }}>Next Steps & Closing</div>
 
-      <div style={{ position: "relative", zIndex: 2, height: "100%", display: "grid", gridTemplateColumns: "1fr 690px" }}>
-        <section style={{ padding: "70px 80px 68px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-          <IMissiveLogo height={48} />
           <div>
-            <div className="slide-kicker" style={{ color: PURPLE, marginBottom: 30 }}>Next steps</div>
-            <h2 className="slide-title" style={{ color: PURPLE, margin: 0, maxWidth: 980 }}>
-              The infrastructure is ready.
-              <span style={{ display: "block", color: "#fff", background: PURPLE, marginTop: 16, padding: "12px 20px 18px", width: "fit-content" }}>The next chapter is scale.</span>
+            <h2 className="slide-title" style={{ color: "#fff", margin: 0 }}>
+              The Infrastructure<br />Is Ready.
+            </h2>
+            <h2 className="slide-title" style={{ color: YELLOW, margin: 0, marginTop: 12 }}>
+              The Next Chapter<br />Is Scale.
             </h2>
           </div>
-          <div className="slide-caption" style={{ color: "rgba(255,255,255,.72)", maxWidth: 760 }}>
-            Together, iMissive and stc can unlock enterprise messaging growth with reliable local execution.
-          </div>
-        </section>
 
-        <section style={{ padding: "70px 66px 50px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+          <p className="slide-body" style={{ color: "#fff", opacity: 0.85, maxWidth: 760, margin: 0 }}>
+            Together, iMissive and stc can unlock new enterprise messaging growth while delivering reliable,
+            locally supported communication at scale.
+          </p>
+        </div>
+
+        {/* Right — next steps + contact */}
+        <div style={{ padding: "80px 80px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
           <div>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingBottom: 28, borderBottom: "1px solid #E5DFE6" }}>
-              <div>
-                <div className="slide-kicker" style={{ color: STC_PURPLE }}>Suggested actions</div>
-                <div style={{ fontSize: 18, color: MUTED, marginTop: 9 }}>For discussion and alignment</div>
-              </div>
-              <StcLogo height={48} />
-            </div>
-            <ol style={{ listStyle: "none", padding: 0, margin: "30px 0 0" }}>
-              {steps.map((step, index) => (
-                <li key={step} style={{ display: "grid", gridTemplateColumns: "42px 1fr", gap: 18, alignItems: "center", minHeight: 78, borderBottom: index < steps.length - 1 ? "1px solid #EEE9EF" : "none" }}>
-                  <span style={{ fontFamily: "Manrope", fontSize: 17, fontWeight: 800, color: index === 2 ? STC_CORAL : PURPLE }}>0{index + 1}</span>
-                  <span style={{ fontSize: 21, lineHeight: 1.32, color: INK }}>{step}</span>
+            <div className="slide-kicker" style={{ color: PURPLE, marginBottom: 28 }}>Suggested Next Steps</div>
+            <ol style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 18 }}>
+              {steps.map((s, i) => (
+                <li key={s} style={{ display: "flex", alignItems: "baseline", gap: 22 }}>
+                  <span className="slide-chrome" style={{ color: YELLOW, fontWeight: 700, width: 36, fontVariantNumeric: "tabular-nums" }}>{`0${i + 1}`}</span>
+                  <span className="slide-body" style={{ color: INK, fontSize: 24, lineHeight: 1.35 }}>{s}</span>
                 </li>
               ))}
             </ol>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 24, alignItems: "end", paddingTop: 24, borderTop: "1px solid #E5DFE6" }}>
-            <div style={{ fontSize: 16, lineHeight: 1.55, color: MUTED }}>
-              <strong style={{ display: "block", color: INK }}>{meta.contact.company}</strong>
-              {meta.contact.web} &middot; {meta.contact.email}<br />
-              {meta.contact.phone}
+          <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 32, paddingBottom: 24, borderBottom: "1px solid #e6e3df" }}>
+              <IMissiveLogo height={44} />
+              <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+                <span className="slide-chrome" style={{ color: "#9a96a0" }}>with</span>
+                <StcLogo size={56} color={STC_PURPLE} />
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                <span className="slide-chrome" style={{ color: "#9a96a0" }}>Part of</span>
+                <RasscoLogo height={28} />
+              </div>
             </div>
-            <RasscoLogo height={34} />
+
+            <div className="slide-caption" style={{ color: "#5a5560", lineHeight: 1.55 }}>
+              <div style={{ color: INK, fontWeight: 700, fontFamily: "Manrope" }}>{meta.contact.company}</div>
+              <div>{meta.contact.legal}</div>
+              <div>{meta.contact.location}</div>
+              <div style={{ marginTop: 6 }}>{meta.contact.web} · {meta.contact.email}</div>
+              <div>{meta.contact.phone}</div>
+            </div>
           </div>
-        </section>
+        </div>
       </div>
-    </Slide>
+    </SlideFrame>
   );
 }
 

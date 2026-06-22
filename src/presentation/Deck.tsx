@@ -168,7 +168,7 @@ export function Deck() {
           borderRadius: 8, padding: "20px 24px", backdropFilter: "blur(8px)",
         }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 10 }}>
-            <div style={{ fontFamily: "Manrope", fontWeight: 700, fontSize: 13, letterSpacing: 0, textTransform: "uppercase", color: "#FDBF30" }}>
+            <div style={{ fontFamily: "Manrope", fontWeight: 700, fontSize: 13, letterSpacing: "0.18em", textTransform: "uppercase", color: "#FDBF30" }}>
               Presenter Notes · Slide {index + 1}
             </div>
             <button onClick={() => setShowNotes(false)} style={btnReset}>✕</button>
