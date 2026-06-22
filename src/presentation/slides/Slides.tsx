@@ -564,22 +564,23 @@ export function ClosingSlide() {
   ];
   return (
     <SlideFrame>
-      <div style={{ padding: "120px 130px 0", display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 80, height: "100%" }}>
+      <div style={{ padding: "110px 130px 110px", display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 80, height: "100%", boxSizing: "border-box" }}>
         {/* Left statement */}
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
           <div>
             <Kicker>08 · Next Steps & Closing</Kicker>
-            <h2 style={{ color: TEXT, fontFamily: "Manrope", fontWeight: 800, fontSize: 110, lineHeight: 0.98, margin: "40px 0 0", letterSpacing: "-0.03em" }}>
+            <h2 style={{ color: TEXT, fontFamily: "Manrope", fontWeight: 800, fontSize: 96, lineHeight: 0.98, margin: "36px 0 0", letterSpacing: "-0.03em" }}>
               The infrastructure<br />is ready.
             </h2>
-            <h2 className="glow-yellow" style={{ color: YELLOW, fontFamily: "Manrope", fontWeight: 800, fontSize: 110, lineHeight: 0.98, margin: "14px 0 0", letterSpacing: "-0.03em" }}>
+            <h2 className="glow-yellow" style={{ color: YELLOW, fontFamily: "Manrope", fontWeight: 800, fontSize: 96, lineHeight: 0.98, margin: "12px 0 0", letterSpacing: "-0.03em" }}>
               The next chapter<br />is scale.
             </h2>
           </div>
-          <div style={{ paddingTop: 40, borderTop: `1px solid ${LINE}`, maxWidth: 760 }}>
-            <p style={{ color: TEXT, opacity: 0.82, fontSize: 24, lineHeight: 1.4, margin: 0 }}>
+          <div style={{ paddingTop: 28, borderTop: `1px solid ${LINE}`, maxWidth: 760 }}>
+            <p style={{ color: TEXT, opacity: 0.82, fontSize: 22, lineHeight: 1.4, margin: 0 }}>
               Together, iMissive and stc can unlock new enterprise messaging growth while delivering reliable, locally supported communication at scale.
             </p>
+            <div className="font-mono-d" style={{ color: MUTED, fontSize: 14, letterSpacing: "0.28em", marginTop: 22 }}>09 / 09 · END OF DECK</div>
           </div>
         </div>
 
@@ -597,7 +598,7 @@ export function ClosingSlide() {
             </ol>
           </div>
 
-          <div style={{ marginTop: 30 }}>
+          <div style={{ marginTop: 24 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 24, paddingBottom: 22, borderBottom: `1px solid ${LINE}`, justifyContent: "space-between" }}>
               <IMissiveLogo height={38} invert />
               <span className="font-mono-d" style={{ color: MUTED, fontSize: 14, letterSpacing: "0.28em" }}>WITH</span>
@@ -607,16 +608,13 @@ export function ClosingSlide() {
               <span className="font-mono-d" style={{ color: MUTED, fontSize: 14, letterSpacing: "0.28em" }}>· PART OF</span>
               <div style={{ background: "#fff", padding: "6px 12px", borderRadius: 4 }}><RasscoLogo height={24} /></div>
             </div>
-            <div style={{ color: MUTED, fontSize: 16, marginTop: 18, lineHeight: 1.6 }}>
+            <div style={{ color: MUTED, fontSize: 15, marginTop: 16, lineHeight: 1.55 }}>
               <div style={{ color: TEXT, fontWeight: 700, fontFamily: "Manrope", fontSize: 20 }}>{meta.contact.company}</div>
               <div>{meta.contact.legal} · {meta.contact.location}</div>
               <div className="font-mono-d" style={{ marginTop: 4, color: YELLOW }}>{meta.contact.web} · {meta.contact.email} · {meta.contact.phone}</div>
             </div>
           </div>
         </div>
-      </div>
-      <div style={{ position: "absolute", left: 130, bottom: 56 }}>
-        <span className="font-mono-d" style={{ color: MUTED, fontSize: 16, letterSpacing: "0.22em" }}>09 / 09 · END</span>
       </div>
     </SlideFrame>
   );
