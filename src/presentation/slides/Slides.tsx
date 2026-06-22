@@ -269,41 +269,35 @@ export function EcosystemSlide() {
     "Email-to-SMS",
   ];
   // Position 8 satellites around center
-  const cx = 480, cy = 470, r = 360;
+  const cx = 600, cy = 500, r = 340;
   return (
     <SlideFrame>
       <SlideHeader kicker="Communication Ecosystem" title="SMS at the Core. More Channels Around It." />
       <div style={{ padding: "30px 110px 0", display: "grid", gridTemplateColumns: "1.05fr 1fr", gap: 40, alignItems: "start" }}>
         {/* Diagram */}
         <div style={{ position: "relative", height: 820 }}>
-          <svg viewBox="0 0 960 940" width="100%" height="100%">
+          <svg viewBox="0 0 1200 1000" width="100%" height="100%">
             {satellites.map((_, i) => {
               const angle = (i / satellites.length) * Math.PI * 2 - Math.PI / 2;
               const x = cx + Math.cos(angle) * r;
               const y = cy + Math.sin(angle) * r;
               return <line key={i} x1={cx} y1={cy} x2={x} y2={y} stroke={PURPLE} strokeOpacity="0.25" strokeWidth="1.5" />;
             })}
-            <circle cx={cx} cy={cy} r="220" fill={PURPLE} />
-            <circle cx={cx} cy={cy} r="240" fill="none" stroke={YELLOW} strokeWidth="3" />
-            <text x={cx} y={cy - 10} textAnchor="middle" fill="#fff" fontFamily="Manrope" fontWeight="800" fontSize="64" letterSpacing="-0.02em">Enterprise</text>
-            <text x={cx} y={cy + 70} textAnchor="middle" fill={YELLOW} fontFamily="Manrope" fontWeight="800" fontSize="96" letterSpacing="-0.03em">SMS</text>
+            <circle cx={cx} cy={cy} r="210" fill={PURPLE} />
+            <circle cx={cx} cy={cy} r="228" fill="none" stroke={YELLOW} strokeWidth="3" />
+            <text x={cx} y={cy - 10} textAnchor="middle" fill="#fff" fontFamily="Manrope" fontWeight="800" fontSize="58" letterSpacing="-0.02em">Enterprise</text>
+            <text x={cx} y={cy + 72} textAnchor="middle" fill={YELLOW} fontFamily="Manrope" fontWeight="800" fontSize="92" letterSpacing="-0.03em">SMS</text>
             {satellites.map((s, i) => {
               const angle = (i / satellites.length) * Math.PI * 2 - Math.PI / 2;
               const x = cx + Math.cos(angle) * r;
               const y = cy + Math.sin(angle) * r;
+              const anchor = Math.cos(angle) > 0.25 ? "start" : Math.cos(angle) < -0.25 ? "end" : "middle";
+              const dx = Math.cos(angle) > 0.25 ? 24 : Math.cos(angle) < -0.25 ? -24 : 0;
+              const dy = Math.sin(angle) > 0.6 ? 48 : Math.sin(angle) < -0.6 ? -24 : 8;
               return (
                 <g key={s}>
-                  <circle cx={x} cy={y} r="14" fill={i % 2 === 0 ? TEAL : ORANGE} />
-                  <text
-                    x={x}
-                    y={y + (Math.sin(angle) > 0.3 ? 56 : Math.sin(angle) < -0.3 ? -32 : 8)}
-                    textAnchor={Math.cos(angle) > 0.3 ? "start" : Math.cos(angle) < -0.3 ? "end" : "middle"}
-                    dx={Math.cos(angle) > 0.3 ? 26 : Math.cos(angle) < -0.3 ? -26 : 0}
-                    fill={INK}
-                    fontFamily="Inter"
-                    fontWeight="600"
-                    fontSize="26"
-                  >
+                  <circle cx={x} cy={y} r="12" fill={i % 2 === 0 ? TEAL : ORANGE} />
+                  <text x={x + dx} y={y + dy} textAnchor={anchor} fill={INK} fontFamily="Inter" fontWeight="600" fontSize="26">
                     {s}
                   </text>
                 </g>
