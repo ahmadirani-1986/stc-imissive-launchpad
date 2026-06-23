@@ -16,7 +16,7 @@ function PrintView() {
     return () => window.clearTimeout(t);
   }, []);
   return (
-    <div style={{ background: "#1a1a1a", minHeight: "100vh", padding: 24 }}>
+    <div className="print-root" style={{ background: "#1a1a1a", minHeight: "100vh", padding: 24 }}>
       <style>{`
         @media screen {
           .print-deck { display: flex; flex-direction: column; gap: 24px; align-items: center; }
@@ -26,6 +26,7 @@ function PrintView() {
         @media print {
           @page { size: 1920px 1080px landscape; margin: 0; }
           html, body, #root { background: #fff !important; }
+          .print-root { padding: 0 !important; margin: 0 !important; background: #fff !important; min-height: 0 !important; }
           .print-deck { display: block; }
           .print-page { width: 1920px; height: 1080px; background: #fff; box-shadow: none; position: relative; overflow: hidden; page-break-after: always; break-after: page; }
           .print-page:last-child { page-break-after: auto; }
