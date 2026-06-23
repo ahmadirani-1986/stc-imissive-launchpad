@@ -1,4 +1,4 @@
-import { IMissiveLogo, RasscoLogo, StcLogo } from "../Brand";
+import { IMissiveLogo, RasscoLogo, StcLogo, StcGroupLogo, RasscoGroupLogo } from "../Brand";
 import { meta } from "@/data/deck";
 
 /* ───────── Brand tokens (tech / neon refit) ───────── */
@@ -123,20 +123,22 @@ export function CoverSlide() {
         <IMissiveLogo height={44} invert />
         <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
           <span className="font-mono-d" style={{ color: MUTED, fontSize: 16, letterSpacing: "0.22em", textTransform: "uppercase" }}>In conversation with</span>
-          <div style={{ padding: "12px 22px", background: "#fff", borderRadius: 4 }}>
-            <StcLogo size={42} color={STC_PURPLE_TRUE} />
-          </div>
+          <StcGroupLogo height={52} />
         </div>
       </div>
 
       {/* Center content */}
       <div style={{ position: "absolute", left: 130, right: 130, top: 220, bottom: 220, display: "flex", flexDirection: "column", justifyContent: "center" }}>
         <Kicker>Strategic Partnership Discussion · {meta.date}</Kicker>
-        <h1 className="display" style={{ margin: "36px 0 0", color: TEXT, fontSize: 220, lineHeight: 0.92, fontWeight: 800, letterSpacing: "-0.04em" }}>
-          iMissive<br />
-          <span style={{ color: YELLOW }} className="glow-yellow">×</span>{" "}
-          <span style={{ color: TEXT }}>stc</span>
-        </h1>
+        <div style={{ margin: "44px 0 0", display: "flex", alignItems: "center", gap: 56, flexWrap: "nowrap" }}>
+          <div style={{ background: "#fff", padding: "28px 38px", borderRadius: 10, display: "inline-flex", alignItems: "center" }}>
+            <IMissiveLogo height={140} />
+          </div>
+          <span className="glow-yellow" style={{ color: YELLOW, fontFamily: "Manrope", fontWeight: 800, fontSize: 180, lineHeight: 1, letterSpacing: "-0.04em" }}>×</span>
+          <div style={{ background: "#fff", padding: "28px 56px", borderRadius: 10, display: "inline-flex", alignItems: "center" }}>
+            <StcLogo size={140} color={STC_PURPLE_TRUE} />
+          </div>
+        </div>
         <div style={{ display: "flex", alignItems: "center", gap: 22, marginTop: 44 }}>
           <div style={{ width: 80, height: 3, background: YELLOW }} />
           <div className="slide-subtitle" style={{ color: TEXT, opacity: 0.9, fontSize: 40, fontWeight: 600 }}>Growing Enterprise Messaging Together</div>
@@ -154,7 +156,7 @@ export function CoverSlide() {
         ))}
         <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 10, paddingTop: 20 }}>
           <span className="font-mono-d" style={{ color: MUTED, fontSize: 14, letterSpacing: "0.22em", textTransform: "uppercase" }}>Part of</span>
-          <div style={{ background: "#fff", padding: "10px 16px", borderRadius: 4 }}><RasscoLogo height={28} /></div>
+          <div style={{ background: "#fff", padding: "12px 18px", borderRadius: 6, display: "inline-flex", alignItems: "center" }}><RasscoGroupLogo height={60} /></div>
         </div>
       </div>
     </SlideFrame>
@@ -599,19 +601,17 @@ export function ClosingSlide() {
           </div>
 
           <div style={{ marginTop: 24 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 24, paddingBottom: 22, borderBottom: `1px solid ${LINE}`, justifyContent: "space-between" }}>
-              <IMissiveLogo height={38} invert />
+            <div style={{ display: "flex", alignItems: "center", gap: 28, paddingBottom: 22, borderBottom: `1px solid ${LINE}` }}>
+              <IMissiveLogo height={44} invert />
               <span className="font-mono-d" style={{ color: MUTED, fontSize: 14, letterSpacing: "0.28em" }}>WITH</span>
-              <div style={{ background: "#fff", padding: "8px 14px", borderRadius: 4 }}>
-                <StcLogo size={36} color={STC_PURPLE_TRUE} />
+              <div style={{ background: "#fff", padding: "10px 18px", borderRadius: 6, display: "inline-flex", alignItems: "center" }}>
+                <StcLogo size={42} color={STC_PURPLE_TRUE} />
               </div>
-              <span className="font-mono-d" style={{ color: MUTED, fontSize: 14, letterSpacing: "0.28em" }}>· PART OF</span>
-              <div style={{ background: "#fff", padding: "6px 12px", borderRadius: 4 }}><RasscoLogo height={24} /></div>
             </div>
             <div style={{ color: MUTED, fontSize: 15, marginTop: 16, lineHeight: 1.55 }}>
               <div style={{ color: TEXT, fontWeight: 700, fontFamily: "Manrope", fontSize: 20 }}>{meta.contact.company}</div>
               <div>{meta.contact.legal} · {meta.contact.location}</div>
-              <div className="font-mono-d" style={{ marginTop: 4, color: YELLOW }}>{meta.contact.web} · {meta.contact.email} · {meta.contact.phone}</div>
+              <div className="font-mono-d" style={{ marginTop: 6, color: YELLOW, fontSize: 16, letterSpacing: "0.12em" }}>{meta.contact.web}</div>
             </div>
           </div>
         </div>
