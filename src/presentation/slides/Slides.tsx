@@ -439,50 +439,49 @@ export function VisionSlide() {
   return (
     <SlideFrame>
       <SlideHeader kicker="05 · 12-Month Vision" title={<>From proven infrastructure to <span style={{ color: YELLOW }}>scaled market impact</span></>} />
-      <div style={{ padding: "70px 130px 0" }}>
+      <div style={{ padding: "40px 130px 0" }}>
         {/* Hero growth visualisation */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 0.7fr", gap: 60, alignItems: "stretch" }}>
-          <div style={{ position: "relative", padding: "30px 0" }}>
+          <div style={{ position: "relative", padding: "10px 0" }}>
             <div className="font-mono-d" style={{ color: MUTED, fontSize: 16, letterSpacing: "0.28em" }}>TODAY</div>
-            <div className="font-mono-d" style={{ color: TEXT, fontSize: 180, fontWeight: 700, lineHeight: 1, marginTop: 16, letterSpacing: "-0.04em" }}>5<span style={{ color: MUTED, fontWeight: 500 }}>M</span></div>
+            <div className="font-mono-d" style={{ color: TEXT, fontSize: 150, fontWeight: 700, lineHeight: 1, marginTop: 14, letterSpacing: "-0.04em" }}>5<span style={{ color: MUTED, fontWeight: 500 }}>M</span></div>
             <div style={{ color: MUTED, fontSize: 20, marginTop: 8 }}>messages per month</div>
-            {/* small bar */}
-            <div style={{ marginTop: 30, height: 14, width: "30%", background: PURPLE, opacity: 0.7 }} />
+            <div style={{ marginTop: 22, height: 12, width: "30%", background: PURPLE, opacity: 0.7 }} />
           </div>
-          <div style={{ position: "relative", padding: "30px 0" }}>
+          <div style={{ position: "relative", padding: "10px 0" }}>
             <div className="font-mono-d" style={{ color: YELLOW, fontSize: 16, letterSpacing: "0.28em" }}>12-MONTH AMBITION</div>
-            <div className="font-mono-d glow-yellow" style={{ color: YELLOW, fontSize: 220, fontWeight: 700, lineHeight: 1, marginTop: 16, letterSpacing: "-0.04em" }}>35<span style={{ color: YELLOW, opacity: 0.6, fontWeight: 500 }}>M</span></div>
+            <div className="font-mono-d glow-yellow" style={{ color: YELLOW, fontSize: 180, fontWeight: 700, lineHeight: 1, marginTop: 14, letterSpacing: "-0.04em" }}>35<span style={{ color: YELLOW, opacity: 0.6, fontWeight: 500 }}>M</span></div>
             <div style={{ color: TEXT, fontSize: 20, marginTop: 8 }}>messages per month · forward target</div>
-            <div style={{ marginTop: 30, height: 14, width: "100%", background: YELLOW, boxShadow: `0 0 24px ${YELLOW}` }} />
+            <div style={{ marginTop: 22, height: 12, width: "100%", background: YELLOW, boxShadow: `0 0 24px ${YELLOW}` }} />
           </div>
           <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", borderLeft: `1px solid ${LINE}`, paddingLeft: 50 }}>
             <div className="font-mono-d" style={{ color: MUTED, fontSize: 14, letterSpacing: "0.3em" }}>GROWTH</div>
-            <div className="font-mono-d glow-yellow" style={{ color: YELLOW, fontWeight: 700, fontSize: 260, lineHeight: 1, letterSpacing: "-0.05em" }}>7×</div>
+            <div className="font-mono-d glow-yellow" style={{ color: YELLOW, fontWeight: 700, fontSize: 210, lineHeight: 1, letterSpacing: "-0.05em" }}>7×</div>
             <div style={{ color: MUTED, fontSize: 18, textAlign: "center", marginTop: 4 }}>monthly volume<br />ambition</div>
           </div>
         </div>
 
         {/* annualized strip */}
-        <div style={{ marginTop: 50, padding: "22px 30px", border: `1px solid ${LINE}`, background: "rgba(255,255,255,0.02)", borderRadius: 6, display: "flex", alignItems: "center", gap: 32 }}>
+        <div style={{ marginTop: 30, padding: "18px 30px", border: `1px solid ${LINE}`, background: "rgba(255,255,255,0.02)", borderRadius: 6, display: "flex", alignItems: "center", gap: 32 }}>
           <span className="font-mono-d" style={{ color: YELLOW, fontSize: 14, letterSpacing: "0.3em" }}>ANNUALIZED</span>
-          <span className="font-mono-d" style={{ color: TEXT, fontSize: 36, fontWeight: 700 }}>60M</span>
+          <span className="font-mono-d" style={{ color: TEXT, fontSize: 32, fontWeight: 700 }}>60M</span>
           <span style={{ color: MUTED, fontSize: 18 }}>current</span>
           <svg width="80" height="14"><line x1="0" y1="7" x2="64" y2="7" stroke={YELLOW} strokeWidth="2" strokeDasharray="3 4" /><polygon points="64,1 80,7 64,13" fill={YELLOW} /></svg>
-          <span className="font-mono-d glow-yellow" style={{ color: YELLOW, fontSize: 44, fontWeight: 700 }}>420M</span>
+          <span className="font-mono-d glow-yellow" style={{ color: YELLOW, fontSize: 38, fontWeight: 700 }}>420M</span>
           <span style={{ color: TEXT, fontSize: 18 }}>run-rate · 12-month ambition</span>
         </div>
 
         {/* pillars */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 22, marginTop: 40 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 22, marginTop: 26 }}>
           {[
             "Scale domestic messaging volume",
             "Grow enterprise customer base",
             "Strengthen operator relationships",
             "Expand multi-channel adoption",
           ].map((p, i) => (
-            <div key={p} style={{ padding: "20px 22px", border: `1px solid ${LINE}`, borderTop: `2px solid ${YELLOW}`, borderRadius: 4 }}>
-              <div className="font-mono-d" style={{ color: YELLOW, fontSize: 14, letterSpacing: "0.28em", marginBottom: 10 }}>{`P0${i + 1}`}</div>
-              <div style={{ color: TEXT, fontSize: 20, fontFamily: "Manrope", fontWeight: 600, lineHeight: 1.3 }}>{p}</div>
+            <div key={p} style={{ padding: "16px 20px", border: `1px solid ${LINE}`, borderTop: `2px solid ${YELLOW}`, borderRadius: 4 }}>
+              <div className="font-mono-d" style={{ color: YELLOW, fontSize: 13, letterSpacing: "0.28em", marginBottom: 8 }}>{`P0${i + 1}`}</div>
+              <div style={{ color: TEXT, fontSize: 18, fontFamily: "Manrope", fontWeight: 600, lineHeight: 1.3 }}>{p}</div>
             </div>
           ))}
         </div>
