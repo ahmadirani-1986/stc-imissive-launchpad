@@ -52,7 +52,7 @@ export function Deck() {
   const bumpActivity = useCallback(() => {
     setControlsVisible(true);
     if (hideTimer.current) window.clearTimeout(hideTimer.current);
-    hideTimer.current = window.setTimeout(() => setControlsVisible(false), 2500);
+      hideTimer.current = window.setTimeout(() => setControlsVisible(false), 2000);
   }, []);
   useEffect(() => {
     bumpActivity();
