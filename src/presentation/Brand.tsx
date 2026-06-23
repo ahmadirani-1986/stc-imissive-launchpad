@@ -2,7 +2,6 @@ import imissiveLogo from "@/assets/imissive-logo.png.asset.json";
 import rasscoLogo from "@/assets/rassco-logo.png.asset.json";
 import stcGroupLogo from "@/assets/stc-group-logo.png.asset.json";
 import rasscoGroupLogo from "@/assets/rassco-group-logo.png.asset.json";
-import stcMarkLogo from "@/assets/stc-mark-logo.png.asset.json";
 
 export const IMissiveLogo = ({ height = 64, invert = false }: { height?: number; invert?: boolean }) => (
   <img
@@ -31,15 +30,6 @@ export const StcGroupLogo = ({ height = 48 }: { height?: number }) => (
   <img
     src={stcGroupLogo.url}
     alt="stc Group"
-    style={{ height, width: "auto", objectFit: "contain" }}
-    draggable={false}
-  />
-);
-
-export const StcMarkLogo = ({ height = 48 }: { height?: number }) => (
-  <img
-    src={stcMarkLogo.url}
-    alt="stc"
     style={{ height, width: "auto", objectFit: "contain" }}
     draggable={false}
   />
