@@ -134,7 +134,8 @@ export function CoverSlide() {
         <Kicker>Strategic Partnership Discussion · {meta.date}</Kicker>
         <h1 className="display" style={{ margin: "36px 0 0", color: TEXT, fontSize: 220, lineHeight: 0.92, fontWeight: 800, letterSpacing: "-0.04em" }}>
           iMissive<br />
-          <span style={{ color: YELLOW }} className="glow-yellow">× stc</span>
+          <span style={{ color: YELLOW }} className="glow-yellow">×</span>{" "}
+          <span style={{ color: TEXT }}>stc</span>
         </h1>
         <div style={{ display: "flex", alignItems: "center", gap: 22, marginTop: 44 }}>
           <div style={{ width: 80, height: 3, background: YELLOW }} />
