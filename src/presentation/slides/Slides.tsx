@@ -601,19 +601,17 @@ export function ClosingSlide() {
           </div>
 
           <div style={{ marginTop: 24 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 24, paddingBottom: 22, borderBottom: `1px solid ${LINE}`, justifyContent: "space-between" }}>
-              <IMissiveLogo height={38} invert />
+            <div style={{ display: "flex", alignItems: "center", gap: 28, paddingBottom: 22, borderBottom: `1px solid ${LINE}` }}>
+              <IMissiveLogo height={44} invert />
               <span className="font-mono-d" style={{ color: MUTED, fontSize: 14, letterSpacing: "0.28em" }}>WITH</span>
-              <div style={{ background: "#fff", padding: "8px 14px", borderRadius: 4 }}>
-                <StcLogo size={36} color={STC_PURPLE_TRUE} />
+              <div style={{ background: "#fff", padding: "10px 18px", borderRadius: 6, display: "inline-flex", alignItems: "center" }}>
+                <StcLogo size={42} color={STC_PURPLE_TRUE} />
               </div>
-              <span className="font-mono-d" style={{ color: MUTED, fontSize: 14, letterSpacing: "0.28em" }}>· PART OF</span>
-              <div style={{ background: "#fff", padding: "6px 12px", borderRadius: 4 }}><RasscoLogo height={24} /></div>
             </div>
             <div style={{ color: MUTED, fontSize: 15, marginTop: 16, lineHeight: 1.55 }}>
               <div style={{ color: TEXT, fontWeight: 700, fontFamily: "Manrope", fontSize: 20 }}>{meta.contact.company}</div>
               <div>{meta.contact.legal} · {meta.contact.location}</div>
-              <div className="font-mono-d" style={{ marginTop: 4, color: YELLOW }}>{meta.contact.web} · {meta.contact.email} · {meta.contact.phone}</div>
+              <div className="font-mono-d" style={{ marginTop: 6, color: YELLOW, fontSize: 16, letterSpacing: "0.12em" }}>{meta.contact.web}</div>
             </div>
           </div>
         </div>
