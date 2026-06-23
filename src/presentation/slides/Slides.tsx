@@ -1,4 +1,4 @@
-import { IMissiveLogo, RasscoLogo, StcLogo, StcGroupLogo, RasscoGroupLogo } from "../Brand";
+import { IMissiveLogo, RasscoLogo, StcLogo, StcGroupLogo, StcMarkLogo, RasscoGroupLogo } from "../Brand";
 import { meta } from "@/data/deck";
 
 /* ───────── Brand tokens (tech / neon refit) ───────── */
@@ -131,13 +131,9 @@ export function CoverSlide() {
       <div style={{ position: "absolute", left: 130, right: 130, top: 220, bottom: 220, display: "flex", flexDirection: "column", justifyContent: "center" }}>
         <Kicker>Strategic Partnership Discussion · {meta.date}</Kicker>
         <div style={{ margin: "44px 0 0", display: "flex", alignItems: "center", gap: 56, flexWrap: "nowrap" }}>
-          <div style={{ background: "#fff", padding: "28px 38px", borderRadius: 10, display: "inline-flex", alignItems: "center" }}>
-            <IMissiveLogo height={140} />
-          </div>
+          <IMissiveLogo height={140} invert />
           <span className="glow-yellow" style={{ color: YELLOW, fontFamily: "Manrope", fontWeight: 800, fontSize: 180, lineHeight: 1, letterSpacing: "-0.04em" }}>×</span>
-          <div style={{ background: "#fff", padding: "28px 56px", borderRadius: 10, display: "inline-flex", alignItems: "center" }}>
-            <StcLogo size={140} color={STC_PURPLE_TRUE} />
-          </div>
+          <StcMarkLogo height={140} />
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 22, marginTop: 44 }}>
           <div style={{ width: 80, height: 3, background: YELLOW }} />
@@ -156,7 +152,7 @@ export function CoverSlide() {
         ))}
         <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 10, paddingTop: 20 }}>
           <span className="font-mono-d" style={{ color: MUTED, fontSize: 14, letterSpacing: "0.22em", textTransform: "uppercase" }}>Part of</span>
-          <div style={{ background: "#fff", padding: "12px 18px", borderRadius: 6, display: "inline-flex", alignItems: "center" }}><RasscoGroupLogo height={60} /></div>
+          <RasscoGroupLogo height={60} />
         </div>
       </div>
     </SlideFrame>
@@ -604,9 +600,7 @@ export function ClosingSlide() {
             <div style={{ display: "flex", alignItems: "center", gap: 28, paddingBottom: 22, borderBottom: `1px solid ${LINE}` }}>
               <IMissiveLogo height={44} invert />
               <span className="font-mono-d" style={{ color: MUTED, fontSize: 14, letterSpacing: "0.28em" }}>WITH</span>
-              <div style={{ background: "#fff", padding: "10px 18px", borderRadius: 6, display: "inline-flex", alignItems: "center" }}>
-                <StcLogo size={42} color={STC_PURPLE_TRUE} />
-              </div>
+              <StcMarkLogo height={44} />
             </div>
             <div style={{ color: MUTED, fontSize: 15, marginTop: 16, lineHeight: 1.55 }}>
               <div style={{ color: TEXT, fontWeight: 700, fontFamily: "Manrope", fontSize: 20 }}>{meta.contact.company}</div>
